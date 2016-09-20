@@ -1,0 +1,22 @@
+{
+  "name": "simple-date-formater",
+  "version": "1.0.0",
+  "description": "simple way to format date for js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limi58/date-formater.git"
+  },
+  "author": "limi58",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/limi58/date-formater/issues"
+  },
+  "homepage": "https://github.com/limi58/date-formater#readme",
+  "dependencies": {
+    "left-pad": "^1.1.1"
+  }
+}
