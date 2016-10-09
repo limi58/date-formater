@@ -1,33 +1,37 @@
-const leftPad = require('left-pad')
+'use strict';
 
-function dateFormater(dateStr, type = 'date-time'){
+var leftPad = require('left-pad');
+
+function dateFormater(dateStr) {
+  var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'date-time';
+
   if (!dateStr) {
-    return parse(new Date(), type)
+    return parse(new Date(), type);
   }
   if (!isNaN(Number(dateStr))) {
-    dateStr = Number(dateStr)
-    if (dateStr.toString().length !== 13) dateStr *= 1000
+    dateStr = Number(dateStr);
+    if (dateStr.toString().length !== 13) dateStr *= 1000;
   }
-  const date = new Date(dateStr)
-  return parse(date, type)
+  var date = new Date(dateStr);
+  return parse(date, type);
 }
 
 function parse(date, type) {
-  const year = date.getFullYear()
-  const month = leftPad(date.getMonth() + 1, 2, 0)
-  const day = leftPad(date.getDate(), 2, 0)
-  const hour = leftPad(date.getHours(), 2, 0)
-  const minute = leftPad(date.getMinutes(), 2, 0)
-  const second = leftPad(date.getSeconds(), 2, 0)
+  var year = date.getFullYear();
+  var month = leftPad(date.getMonth() + 1, 2, 0);
+  var day = leftPad(date.getDate(), 2, 0);
+  var hour = leftPad(date.getHours(), 2, 0);
+  var minute = leftPad(date.getMinutes(), 2, 0);
+  var second = leftPad(date.getSeconds(), 2, 0);
   switch (type) {
     case 'date':
-      return `${year}-${month}-${day}`
-      break
+      return year + '-' + month + '-' + day;
+      break;
     case 'time':
-      return `${hour}:${minute}:${second}`
+      return hour + ':' + minute + ':' + second;
     default:
-      return `${year}-${month}-${day} ${hour}:${minute}:${second}`
+      return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
   }
 }
 
-module.exports = dateFormater
+module.exports = dateFormater;
