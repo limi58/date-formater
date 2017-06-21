@@ -4,7 +4,7 @@ very simple way to format date for js
 convert number or string which can be [formated](http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15) to yyyy-MM-dd HH:mm:ss or yyyy-MM-dd
 
 # install
-`npm install --save simple-date-formater`
+`npm install --save m-dater`
 
 # Usage
 
