@@ -26,7 +26,6 @@ function parse(date, type) {
   switch (type) {
     case 'date':
       return year + '-' + month + '-' + day;
-      break;
     case 'time':
       return hour + ':' + minute + ':' + second;
     default:

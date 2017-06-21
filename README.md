@@ -9,7 +9,7 @@ convert number or string which can be [formated](http://www.ecma-international.o
 # Usage
 
 ```js
-const dateFormat = require('simple-date-formater')
+const dateFormat = require('m-dater')
 dateFormat(wait_format, type)
 ```
 
