@@ -1,7 +1,7 @@
 # date-formater
-very simple way to format date for js
+format date for js
 
-convert number or string which can be [formated](http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15) to yyyy-MM-dd HH:mm:ss or yyyy-MM-dd
+[![Build Status](https://travis-ci.org/limi58/date-formater.svg?branch=master)](https://travis-ci.org/limi58/date-formater)
 
 # install
 `npm install --save m-dater`
@@ -9,19 +9,34 @@ convert number or string which can be [formated](http://www.ecma-international.o
 # Usage
 
 ```js
-const dateFormat = require('m-dater')
-dateFormat(wait_format, type)
+const dater = require('m-dater')
+dater([time,] [type], [opts])
+```
+
+```js
+type: 'date-time', 'date', 'object', 'time', 'Hm', 'human'
+
+opts: {
+  offsetDays: ['today', 'yestoday', 'before yestoday'],
+  weekDays: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+}
 ```
 
 # example
 ```js
-dateFormat() // return current date-time: 2016-09-19 22:22:22
-dateFormat('', 'date-time') // return current date-time: 2016-09-19 22:22:22
-
-dateFormat('', 'date') // return current date: 2016-09-19
-dateFormater('December 06, 2016 06:06:06') // return 2016-12-06 06:06:06
-
-dateFormater(1480975566000) // '2016-12-06 06:06:06'
-dateFormater('1480975566000') // '2016-12-06 06:06:06'
+dateFormat() // => current date-time: 2016-09-19 22:22:22
+dateFormat('', 'date-time') // => current date-time: 2016-09-19 22:22:22
+dateFormat('', 'date') // => current date: 2016-09-19
+dateFormater('1480975566000', 'time') // => 06:06:06
+dateFormater('1480975566000', 'Hm') // => 06:06
+dateFormater('December 06, 2016 06:06:06') // => 2016-12-06 06:06:06
 dateFormater(1480975566) // '2016-12-06 06:06:06'
+
+dateFormater('1480975566000', 'object') // => { Y: '2016', M: '12', D: '06', H: '06', m: '06', s: '06'}
+
+dateFormater('1480975566000', 'human') // => 昨天 06:06
+dateFormater('1480975566000', 'human', {
+  offsetDays: ['today', 'yestoday', 'before yestoday'],
+  weekDays: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+}) // => fri 06:06
 ```
